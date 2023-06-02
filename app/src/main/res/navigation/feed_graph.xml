@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/feed_graph"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.bugra.smooky.view.FeedFragment"
+        android:label="fragment_feed"
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/action_feedFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.bugra.smooky.view.UploadFragment"
+        android:label="fragment_upload"
+        tools:layout="@layout/fragment_upload" >
+        <action
+            android:id="@+id/action_uploadFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+        <argument
+            android:name="info"
+            app:argType="string"
+            android:defaultValue="new" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="0" />
+        <argument
+            android:name="comment"
+            app:argType="string"
+            android:defaultValue="0" />
+        <argument
+            android:name="downloadUrl"
+            app:argType="string"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_uploadFragment_self"
+            app:destination="@id/uploadFragment" />
+    </fragment>
+</navigation>
